@@ -1,3 +1,4 @@
+from dis import disco
 import discord
 from discord.ext import tasks
 import datetime
@@ -98,6 +99,17 @@ async def on_message(message):
             embeded.add_field(name='__**Resources**__', value='[Google Calendar](https://calendar.google.com/calendar/u/1?cid=Y19lcTA1MXNrbjZlZ3UxMDZwMXZxaDZsbjM4b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)\n[SignMeUp](https://signmeup.cs.brown.edu/)\n')
             await message.delete()
             await message.channel.send(embed=embeded)
+        # elif user_message == "!welcome":
+        #     embeded = discord.Embed(title='Welcome!', description='The Discord is still **under construction**, but will be fully up and running by the start of shopping period!\n', color=discord.Color.red())
+        #     await message.delete()
+        #     await message.channel.send(embed=embeded)
+        # elif user_message == "!rules":
+        #     embeded = discord.Embed(title="Rules", description='**1.** No spamming.\n' + 
+        #     '**2.** Do your best to keep discussion relevant to the channel you are in.\n' +
+        #     "**3.** Don't break the [Collaboration Policy](https://csci1951l-spring2022.vercel.app/) as outlined on the course website.\n" +
+        #     "**4.** Be respectful to the TAs and other students.\n", color=discord.Color.teal())
+        #     await message.delete()
+        #     await message.channel.send(embed=embeded)
 
 @client.event
 async def on_reaction_add(reaction, user):
