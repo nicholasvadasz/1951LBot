@@ -100,7 +100,9 @@ async def on_message(message):
             await message.delete()
             await message.channel.send(embed=embeded)
         # elif user_message == "!welcome":
-        #     embeded = discord.Embed(title='Welcome!', description='The Discord is still **under construction**, but will be fully up and running by the start of shopping period!\n', color=discord.Color.red())
+        #     embeded = discord.Embed(title='Welcome!', description='This is the discord for **CS1951L: Blockchains and Cryptocurrencies**.\n\n \
+        #         This discord is meant for all student-to-student communication and serves as a place to collaborate on Projects, Labs, and \
+        #         conceptual questions!\n\nFor more information, check out the rules text channel as well as the Discord section on [HW0](https://hackmd.io/@cs1951L/hw0-setup#Discord).\n', color=discord.Color.red())
         #     await message.delete()
         #     await message.channel.send(embed=embeded)
         # elif user_message == "!rules":
@@ -110,14 +112,5 @@ async def on_message(message):
         #     "**4.** Be respectful to the TAs and other students.\n", color=discord.Color.teal())
         #     await message.delete()
         #     await message.channel.send(embed=embeded)
-
-@client.event
-async def on_reaction_add(reaction, user):
-    if user == client.user:
-        return
-    if reaction.message.channel.id == 933617908251246645:
-        if reaction.emoji == '👍':
-            role = discord.utils.get(user.guild.roles, name='Student')
-            await user.add_roles(role)
             
 client.run(os.getenv('TOKEN'))
