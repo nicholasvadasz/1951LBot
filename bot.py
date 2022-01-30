@@ -28,10 +28,10 @@ async def on_ready():
     print('Discord Bot On as {0.user}'.format(client))
     test.start()
 
-@tasks.loop(minutes=5)
+@tasks.loop(minutes=1)
 async def test():
     thisChannel = client.get_channel(933599507504058409)
-    ourmessage = await thisChannel.fetch_message(933600016696750121)
+    ourmessage = await thisChannel.fetch_message(936955231630159872)
     eventsList = next5EventsFormatted()
     eventsList = '\n'.join(eventsList)
     embeded = discord.Embed(title='Hours', url="https://calendar.google.com/calendar/u/1?cid=Y19lcTA1MXNrbjZlZ3UxMDZwMXZxaDZsbjM4b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -46,7 +46,7 @@ async def on_message(message):
         return
     elif message.guild is None and not message.author.bot:
         if message.content.startswith('!anon'):
-            thisChannel = client.get_channel(933421821355757640)
+            thisChannel = client.get_channel(936030260636581968)
             embeded = discord.Embed(description='*"' + message.content[5:] + '"*', color=discord.Color.dark_blue(), timestamp=datetime.datetime.utcnow())
             await message.add_reaction("👍")
             await thisChannel.send(embed=embeded)
@@ -55,32 +55,32 @@ async def on_message(message):
     channel = str(message.channel.name)
     if user_message.startswith('!'):
         if user_message == '!chain':
-            due_date = datetime.datetime(2022, 2, 14, 23, 59, 59)
+            due_date = datetime.datetime(2022, 2, 27, 23, 59, 59)
             timeLeft = findTimeDif(due_date)
             await message.delete()
-            embeded = composeEmbed('Project 1 : Chain', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on February 14, 2022 at 11:59pm EST.', 
-                "Time left until due date : " + timeLeft, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+            embeded = composeEmbed('Project 1 : Chain', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on February 27, 2022 at 11:59pm EST.', 
+                "Time left until due date : " + timeLeft, 'https://www.google.com', 'https://www.google.com')
             await message.channel.send(embed=embeded)
         elif user_message == '!coin':
-            due_date = datetime.datetime(2022, 3, 6, 23, 59, 59)
+            due_date = datetime.datetime(2022, 3, 21, 23, 59, 59)
             timeLeft = findTimeDif(due_date)
             await message.delete()
-            embeded = composeEmbed('Project 2 : Coin', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on March 6, 2022 at 11:59pm EST.',
-                "Time left until due date : " + timeLeft, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+            embeded = composeEmbed('Project 2 : Coin', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on March 21, 2022 at 11:59pm EST.',
+                "Time left until due date : " + timeLeft, 'https://www.google.com', 'https://www.google.com')
             await message.channel.send(embed=embeded)
         elif user_message == '!lightning':
             due_date = datetime.datetime(2022, 4, 17, 23, 59, 59)
             timeLeft = findTimeDif(due_date)
             await message.delete()
             embeded = composeEmbed('Project 3 : Lightning', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on April 17, 2022 at 11:59pm EST.',
-                "Time left until due date : " + timeLeft, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+                "Time left until due date : " + timeLeft, 'https://www.google.com', 'https://www.google.com')
             await message.channel.send(embed=embeded)
         elif user_message == '!auction':
             await message.delete()
             due_date = datetime.datetime(2022, 5, 1, 23, 59, 59)
             timeLeft = findTimeDif(due_date)
             embeded = composeEmbed('Project 4 : Auction', 'https://csci1951l-spring2022.vercel.app/', 'This project is due on May 1, 2022 at 11:59pm EST.',
-                "Time left until due date : " + timeLeft, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+                "Time left until due date : " + timeLeft, 'https://www.google.com', 'https://www.google.com')
             await message.channel.send(embed=embeded)
         elif user_message == '!commands'or user_message == '!help':
             embeded = discord.Embed(title='Commands', description=
@@ -100,9 +100,7 @@ async def on_message(message):
             await message.delete()
             await message.channel.send(embed=embeded)
         # elif user_message == "!welcome":
-        #     embeded = discord.Embed(title='Welcome!', description='This is the discord for **CS1951L: Blockchains and Cryptocurrencies**.\n\n \
-        #         This discord is meant for all student-to-student communication and serves as a place to collaborate on Projects, Labs, and \
-        #         conceptual questions!\n\nFor more information, check out the rules text channel as well as the Discord section on [HW0](https://hackmd.io/@cs1951L/hw0-setup#Discord).\n', color=discord.Color.red())
+        #     embeded = discord.Embed(title='Welcome!', description='This is the discord for **CS1951L: Blockchains and Cryptocurrencies**.\n\nThis discord is meant for all student-to-student communication and serves as a place to collaborate on Projects, Labs, and conceptual questions!\n\nFor more information, check out the rules text channel as well as the Discord section on [HW0](https://hackmd.io/@cs1951L/hw0-setup#Discord).', color=discord.Color.red())
         #     await message.delete()
         #     await message.channel.send(embed=embeded)
         # elif user_message == "!rules":
